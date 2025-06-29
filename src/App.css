@@ -1,0 +1,370 @@
+
+body {
+    margin: 0;
+    align-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f3f3f3;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.app {
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.player-grid {
+    /*display: grid;*/
+    /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    /*gap: 1.5rem;*/
+    /*justify-items: center;*/
+    /*width: 100%;*/
+    /*box-sizing: border-box;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.player-card {
+    position: relative;
+    padding: 5px;
+    background: #d0e7ff;
+    height: 150px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3); /* "приподнята" */
+    transition: all 0.2s;
+
+    min-width: 300px;
+    max-width: 300px;
+    flex: 1 1 300px;
+}
+
+.player-card.active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+    filter: brightness(1.1);
+    z-index: 1;
+}
+
+.player-card.reverse {
+    background: #ffe0e0;
+}
+
+.player-name {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.reverse .player-name {
+    left: auto;
+    right: 10px;
+    text-align: right;
+}
+
+.player-time {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+    color: black;
+}
+
+.player-time--light-text {
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.player-time.warning {
+    color: #ff5555;
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.pass-turn-button {
+    margin: 0 auto;
+    display: none;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #388e3c;
+    transition: transform 0.1s, box-shadow 0.1s, filter 0.2s;
+}
+
+.pass-turn-button:hover {
+    filter: brightness(0.9);
+}
+
+.pass-turn-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #2e7d32;
+}
+
+button {
+    padding: 0;
+}
+
+button:focus {
+    outline: none;
+}
+
+.pause-button-wrapper {
+    display: none;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pause-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #2196f3; /* синий */
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #1976d2;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.2s ease;
+}
+
+.pause-button:hover {
+    filter: brightness(0.9);
+}
+
+/* При нажатии — вдавливается вниз */
+.pause-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1565c0;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.settings-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.settings-button svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    transform-origin: 50% 50%;
+    transition: transform 0.3s ease;
+}
+
+.settings-button:hover svg {
+    transform: rotate(150deg);
+}
+
+/*.settings-panel {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
+/*    padding: 1rem 2rem;*/
+/*    background: #fff;*/
+/*    border-radius: 12px;*/
+/*    box-shadow: 0 2px 15px rgba(0,0,0,0.1);*/
+/*    max-width: 500px;*/
+/*    margin: 1rem auto;*/
+/*}*/
+
+.player-settings {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.settings-mode {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.reset-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 6px;
+    transition: transform 0.2s;
+}
+
+.reset-button svg {
+    transition: transform 0.3s;
+    transform-origin: center;
+}
+
+.reset-button:active svg {
+    transform: rotate(120deg) !important;
+}
+
+.reset-button:hover svg {
+    transform: rotate(20deg);
+}
+
+.dpad {
+    position: absolute;
+    top: 52%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    pointer-events: none; /* не мешает кликам по карточке */
+}
+
+.dpad-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: auto; /* разрешаем клики по кнопкам */
+    transition: background 0.2s;
+}
+
+.dpad-button:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.dpad-up    { top: 0; left: 30px; }
+.dpad-down  { bottom: 0; left: 30px; }
+.dpad-left  { top: 30px; left: 0; }
+.dpad-right { top: 30px; right: 0; }
+
+.mobile-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #222;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.mobile-button {
+    background: #333;
+    border: none;
+    border-radius: 999px;
+    color: white;
+    padding: 0.7rem 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-button:hover {
+    background: #444;
+}
+
+.pause-button svg,
+.next-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* полупрозрачный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.settings-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 2100;
+}
+
+@media (min-width: 768px) {
+    .mobile-controls {
+        display: none;
+    }
+
+    .pass-turn-button {
+        display: block;
+    }
+
+    .pause-button-wrapper {
+        display: block;
+    }
+}
