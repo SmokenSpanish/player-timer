@@ -51,13 +51,13 @@ A sleek and customizable timer app for turn-based games. Perfect for tracking ti
 
 Try it now: [https://smokenspanish.github.io/player-timer/](https://smokenspanish.github.io/player-timer/)
 
-## 📦 Build for Production
+## ⚙️ How to Run Locally
 
 ```bash
-npm run build
-```
-
-The built app will be available in the `/dist` folder.
+git clone https://github.com/your-username/player-timer.git
+cd player-timer
+npm install
+npm run dev
 
 ## 🧪 Testing on iPhone and macOS
 
@@ -77,4 +77,4 @@ MIT License — free for personal and commercial use.
 
 ---
 
-© 2025 \[Basov Maksim]
+© 2025 Basov Maksim
