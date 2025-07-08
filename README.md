@@ -58,6 +58,7 @@ git clone https://github.com/your-username/player-timer.git
 cd player-timer
 npm install
 npm run dev
+```
 
 ## 🧪 Testing on iPhone and macOS
 
