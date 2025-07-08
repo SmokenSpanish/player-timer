@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# ⏱️ Player Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and customizable timer app for turn-based games. Perfect for tracking time and moves per player in casual or competitive matches. Designed for mobile-first experience and inspired by chess clocks, but flexible for various activities.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 🕹️ Two timer modes:
 
-## Expanding the ESLint configuration
+  * **Stopwatch** — count up from zero.
+  * **Timer** — countdown from a fixed start time.
+* 👆 Tap the screen to switch turns.
+* 🧍 Tap a player during pause to manually assign the active player.
+* ⌛ Bonus time: Optionally add extra seconds after each turn (increment).
+* 🔄 Reset time and moves per player.
+* 🎨 Customize:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * Player names
+  * Player colors
+  * Global background color
+* 🖼️ Add a background photo from mobile device (optional).
+* ➕ Add up to 6 players.
+* 📱 Fully responsive and optimized for mobile usage.
+* 🕶️ Visual effects: glowing timers, active state highlighting, smooth transitions.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Technologies Used
+
+* **React** (Vite)
+* **TypeScript**
+* **HTML5 / CSS3**
+* **PWA-ready**
+
+## 🎮 Usage Instructions
+
+1. **Start Screen**
+
+   * Choose between **Stopwatch** or **Timer** mode.
+   * In Timer mode, set the starting time and optional bonus time per turn.
+
+2. **During Game**
+
+   * Tap anywhere to switch turn (Play mode).
+   * Tap a player's card (Pause mode) to change active player.
+   * Adjust time with the D-pad during pause.
+   * Reset a player’s time and moves with the reset button.
+
+3. **Pause / Resume**
+
+   * Toggle pause to freeze time or make changes.
+
+## 🌐 Live Demo
+
+Try it now: [https://smokenspanish.github.io/player-timer/](https://smokenspanish.github.io/player-timer/)
+
+## 📦 Build for Production
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The built app will be available in the `/dist` folder.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧪 Testing on iPhone and macOS
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Although the app is designed mobile-first, if you don't have access to Apple devices:
+
+* Use Chrome or Safari's mobile device emulation (`DevTools > Toggle device toolbar`)
+* Test PWA install behavior using "Add to Home Screen" in mobile browser
+* Preview on Mac via online emulators (e.g. BrowserStack, Responsively App)
+
+## 🙌 Contributing
+
+Contributions are welcome! If you have ideas for improvements, feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+MIT License — free for personal and commercial use.
+
+---
+
+© 2025 \[Basov Maksim]
